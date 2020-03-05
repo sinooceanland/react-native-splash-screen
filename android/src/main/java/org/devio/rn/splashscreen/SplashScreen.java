@@ -3,6 +3,8 @@ package org.devio.rn.splashscreen;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Build;
+import android.view.View;
+import android.view.WindowManager;
 
 import java.lang.ref.WeakReference;
 
@@ -31,7 +33,15 @@ public class SplashScreen {
                     mSplashDialog = new Dialog(activity, themeResId);
                     mSplashDialog.setContentView(R.layout.launch_screen);
                     mSplashDialog.setCancelable(false);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        //全屏显示
+                        mSplashDialog.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
+                        WindowManager.LayoutParams lp = mSplashDialog.getWindow().getAttributes();
+                        //下面图2
+                        lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+                        mSplashDialog.getWindow().setAttributes(lp);
+                    }
                     if (!mSplashDialog.isShowing()) {
                         mSplashDialog.show();
                     }
