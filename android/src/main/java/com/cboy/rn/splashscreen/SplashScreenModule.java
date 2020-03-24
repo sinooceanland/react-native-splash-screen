@@ -1,4 +1,4 @@
-package org.devio.rn.splashscreen;
+package com.cboy.rn.splashscreen;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;

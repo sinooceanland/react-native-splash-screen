@@ -5,10 +5,10 @@
  * Author:CrazyCodeBoy
  * GitHub:https://github.com/crazycodeboy
  * Email:crazycodeboy@gmail.com
- * @flow
  */
-'use strict';
+#import <React/RCTBridgeModule.h>
 
-import { NativeModules } from 'react-native';
-module.exports = NativeModules.SplashScreen;
-
+@interface SplashScreen : NSObject<RCTBridgeModule>
++ (void)show;
++ (void)hide;
+@end
